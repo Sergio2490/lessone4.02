@@ -9,7 +9,8 @@ class Bird:  # БАЗОВЫЙ, Родительский класс
     def eat(self):
         print(f'{self.name} кушает')
     def sign(self):
-        print(f'{self.name} поет - {self.voice}')
+        #print(f'{self.name} поет - {self.voice}') # переопределяем на голос чирик
+        print(f'{self.name} поет - чирик')
     def info(self):    #вывод всей инф-ции о птице
         print(f'{self.name} - имя')
         print(f'{self.voice} - голос')
@@ -25,8 +26,17 @@ class Pigeon(Bird):  #Дочерний класс Голубь, наследуе
     def walk(self):  #кроме своей хар-ки Люб.еда, вводим тажкже свой метод Гулять
         print(f'{self.name} гуляет')
 
+    def sign(self):   #переопределим метод родит-го класса Bird
+        print(f'{self.name} поет - курлык курлык')
+            
+
 #Создаем объект класса голубь
 bird1 = Pigeon('Гоша', 'курлык', 'серый', 'хлебные крошки')  #Вводим хар-ки, тк унаследовали это от родит-го класса Bird
 bird1.sign()
 bird1.info()
 bird1.walk()
+
+bird2 = Bird('Маша', 'чирик', "коричневый") # favorite_food- такой х-ки в классе Bird нет, она - в классе Pigeon, выдаст ошибку
+#bird2.walk() - также ошибка, тк ф-ция walk() есть только в классе Pigeon, не в классе Bird
+
+
