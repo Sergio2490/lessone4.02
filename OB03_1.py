@@ -1,3 +1,4 @@
+# Пример Композиции
 class Engine():
     def start(self):
         print("Двигатель запущен")
