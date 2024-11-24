@@ -32,6 +32,18 @@ class Square(Shape):
     def area(self):
         return self.width **2
 
+# Сейчас сделаем п.4 задачи
+def print_area(shape):  #фигура,к-ю хотим использовать
+    print(f'Площадь - {shape.area()}')  #мы б.передавать в ф-цию фигуру shape - как бы объект класса.
+                                        # и для этой фируры (они мб разными) - б.рассчит.площадь
+circle = Circle(5)  # создадим объект класса Круг, 5 - радиус
+square = Square(7) # создадим объект класса Квадрат
+print_area(circle) #передали объект класса circle в ф-цию как аргумент.и он подставится в
+                   #print(f'Площадь - {shape.area()}'). (аргумент - shape)/ F bp fhu-nf a-wbb зкште_фкуф()
+                   # - в {shape.area()} - то есть мы б искать S круга в д-м случае
+print_area(square)
+
+
 
 
 
