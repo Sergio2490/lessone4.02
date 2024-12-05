@@ -23,7 +23,7 @@ class Bird(Animal):
 
 class Mammal(Animal):  # млекопитающие
     def make_sound(self):
-        print('гав')
+        print('мяу')
 class Reptile(Animal):
     def make_sound(self):
         print('шшшшшш')
@@ -39,14 +39,14 @@ class Zoo():
         self.animals = []  # 2 списка, куда б. доб всех наших животный
         self.staff = []     # и всех сотрудников
 
-    def add_animals(self, animal):  # сейчас сделаем метод для добавления животных в Зоопарк (в список)
+    def add_animal(self, animal):  # сейчас сделаем метод для добавления животных в Зоопарк (в список)
         self.animals.append(animal)  # ф-я б. доб. именно в наш список (self.animals) конкретное животное
-        print(f'Животное {animal} добавлено в список')  # Животное добавлено в Зоопарк
+        print(f'Животное {animal.name} добавлено в список')  # Животное добавлено в Зоопарк
     def add_staff(self, new_staff):  # сейчас сделаем метод для добавления сотр-ков в Зоопарк (в список)
         self.staff.append(new_staff)  # ф-я б. доб. именно в наш список (self.staff) конкретного сотрудника
         print(f'Сотрудник {new_staff} добавлен в список')  # Сотрудник добавлен в Зоопарк
 
-п. 5
+# п.5
 class ZooKeeper():
     def feed_animal(self, animal):  # передаем в аргументе животное, которое сотр б. кормить
         print(f'Сотрудник кормит {animal.name}')  #указываем конкретное назв животного
@@ -55,6 +55,29 @@ class Veterinarian():
     def heal_animal(self, animal):
         print(f'Ветеринар лечит {animal.name}')
 
+# Сейчас создадим обюъекты классов gj ;bdjnysv
+bird1 = Bird('Скворец', 1)
+mammal1 = Mammal('Котенок', 2)
+reptile1 = Reptile('Змея', 3)
 
+# Создадим объекты, связанные с зоопарком
+zoo = Zoo()
+keeper = ZooKeeper()
+veterinarian = Veterinarian()
 
+# Добавим в зоопарк новых животных
+zoo.add_animal(bird1)
+zoo.add_animal(mammal1)
+zoo.add_animal(reptile1)
 
+# Добавим в зоопарк новых сотрудников
+zoo.add_staff(keeper)
+zoo.add_staff(veterinarian)
+
+# Используем и другие ф-ции - animal_sound(animals). Сюда надо передавать список животных
+# и ф-ция б. переопределять их голоса. (animals) - это атрибут(хар-ка) класса Zoo, поэтому
+# мы б. указывать zoo.animals, чт. добраться(передать) до списка животных
+animal_sound(zoo.animals)
+
+keeper.feed_animal(bird1)
+veterinarian.heal_animal(mammal1)
